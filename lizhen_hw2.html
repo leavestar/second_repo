@@ -1,0 +1,1433 @@
+<html>
+<head>
+<style type="text/css">
+  html, body, div, h1, h2, h3, h4, h5, h6, p, img, dl,
+  dt, dd, ol, ul, li, table, tr, td, form, object, embed,
+  article, aside, canvas, command, details, fieldset,
+  figcaption, figure, footer, group, header, hgroup, legend,
+  mark, menu, meter, nav, output, progress, section, summary,
+  time, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  }
+  article, aside, details, figcaption, figure, footer,
+  header, hgroup, menu, nav, section {
+  display: block;
+  }
+  html {
+  font: 91% arial, helvetica, sans-serif;
+  background: #fff;
+  color: #333;
+  line-height: 1;
+  direction: ltr;
+  }
+  a {
+  color: #15c;
+  text-decoration: none;
+  }
+  a:active {
+  color: #d14836;
+  }
+  a:hover {
+  text-decoration: underline;
+  }
+  h1, h2, h3, h4, h5, h6 {
+  color: #222;
+  font-size: 1.54em;
+  font-weight: normal;
+  line-height: 24px;
+  margin: 0 0 .46em;
+  }
+  p {
+  line-height: 17px;
+  margin: 0 0 1em;
+  }
+  ol, ul {
+  list-style: none;
+  line-height: 17px;
+  margin: 0 0 1em;
+  }
+  li {
+  margin: 0 0 .5em;
+  }
+  table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  }
+  strong {
+  color: #222;
+  }
+</style>
+<style type="text/css">
+  html, body {
+  position: absolute;
+  height: 100%;
+  min-width: 100%;
+  }
+  .wrapper {
+  position: relative;
+  min-height: 100%;
+  }
+  
+  .redtext {
+  color: #dd4b39;
+  }
+  .greytext {
+  color: #555;
+  }
+  
+  .clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '.';
+  clear: both;
+  height: 0;
+  }
+  * html .clearfix {
+  zoom: 1;
+  }
+  *:first-child+html .clearfix {
+  zoom: 1;
+  }
+  pre {
+  font-family: monospace;
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: 1.5em;
+  font-size: 13px;
+  background: #f1f1f1;
+  border-top: 1px solid #e5e5e5;
+  direction: ltr;
+  }
+</style>
+<style type="text/css">
+  button, input, select, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  }
+  button::-moz-focus-inner,
+  input::-moz-focus-inner {
+  border: 0;
+  }
+  input[type=email],
+  input[type=number],
+  input[type=password],
+  input[type=tel],
+  input[type=text],
+  input[type=url] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: inline-block;
+  height: 29px;
+  margin: 0;
+  padding: 0 8px;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  }
+  input[type=email]:hover,
+  input[type=number]:hover,
+  input[type=password]:hover,
+  input[type=tel]:hover,
+  input[type=text]:hover,
+  input[type=url]:hover {
+  border: 1px solid #b9b9b9;
+  border-top: 1px solid #a0a0a0;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+  input[type=email]:focus,
+  input[type=number]:focus,
+  input[type=password]:focus,
+  input[type=tel]:focus,
+  input[type=text]:focus,
+  input[type=url]:focus {
+  outline: none;
+  border: 1px solid #4d90fe;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  }
+  input[type=email][disabled=disabled],
+  input[type=number][disabled=disabled],
+  input[type=password][disabled=disabled],
+  input[type=tel][disabled=disabled],
+  input[type=text][disabled=disabled],
+  input[type=url][disabled=disabled] {
+  border: 1px solid #e5e5e5;
+  background: #f1f1f1;
+  }
+  input[type=email][disabled=disabled]:hover,
+  input[type=number][disabled=disabled]:hover,
+  input[type=password][disabled=disabled]:hover,
+  input[type=tel][disabled=disabled]:hover,
+  input[type=text][disabled=disabled]:hover,
+  input[type=url][disabled=disabled]:hover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
+  input[type=email][readonly=readonly],
+  input[type=number][readonly=readonly],
+  input[type=password][readonly=readonly],
+  input[type=text][readonly=readonly],
+  input[type=url][readonly=readonly] {
+  border: 1px solid #d9d9d9;
+  }
+  input[type=email][readonly=readonly]:hover,
+  input[type=number][readonly=readonly]:hover,
+  input[type=password][readonly=readonly]:hover,
+  input[type=text][readonly=readonly]:hover,
+  input[type=url][readonly=readonly]:hover,
+  input[type=email][readonly=readonly]:focus,
+  input[type=number][readonly=readonly]:focus,
+  input[type=password][readonly=readonly]:focus,
+  input[type=text][readonly=readonly]:focus,
+  input[type=url][readonly=readonly]:focus {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  }
+  
+  input[type=email].form-error,
+  input[type=number].form-error,
+  input[type=password].form-error,
+  input[type=text].form-error,
+  input[type=tel].form-error,
+  input[type=url].form-error {
+  border: 1px solid #dd4b39;
+  }
+
+  input[type=radio] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  cursor: pointer;
+  vertical-align: bottom;
+  background: #fff;
+  border: 1px solid #dcdcdc;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  }
+ 
+  input[type=radio]:active {
+  border-color: #c6c6c6;
+  background: #ebebeb;
+  }
+  
+
+  input[type=radio] {
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+  width: 15px;
+  height: 15px;
+  }
+  
+  input[type=radio]:checked {
+  background: #fff;
+  }
+  input[type=radio]:checked::after {
+  content: '';
+  display: block;
+  position: relative;
+  top: 3px;
+  left: 3px;
+  width: 7px;
+  height: 7px;
+  background: #666;
+  -webkit-border-radius: 1em;
+  -moz-border-radius: 1em;
+  border-radius: 1em;
+  }
+  
+
+  .gaia-country-menu-item-flag, .gaia-country-menu-item-noflag {
+  width: 16px;
+  height: 11px;
+  margin-right: 1em;
+  }
+  .gaia-country-menu-item-flag {
+  background: no-repeat url(//ssl.gstatic.com/i18n/phonenumbers/phoneinputwidget/flags4.png) 0 0;
+  overflow: hidden;
+  }
+  .g-button {
+  display: inline-block;
+  min-width: 46px;
+  text-align: center;
+  color: #444;
+  font-size: 11px;
+  font-weight: bold;
+  height: 27px;
+  padding: 0 8px;
+  line-height: 27px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: all 0.218s;
+  -moz-transition: all 0.218s;
+  -ms-transition: all 0.218s;
+  -o-transition: all 0.218s;
+  transition: all 0.218s;
+  border: 1px solid #dcdcdc;
+  background-color: #f5f5f5;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f5f5f5,#f1f1f1);
+  background-image: linear-gradient(top,#f5f5f5,#f1f1f1);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: default;
+  }
+  *+html .g-button {
+  min-width: 70px;
+  }
+  button.g-button,
+  input[type=submit].g-button {
+  height: 29px;
+  line-height: 29px;
+  vertical-align: bottom;
+  margin: 0;
+  }
+  *+html button.g-button,
+  *+html input[type=submit].g-button {
+  overflow: visible;
+  }
+  .g-button:hover {
+  border: 1px solid #c6c6c6;
+  color: #333;
+  text-decoration: none;
+  -webkit-transition: all 0.0s;
+  -moz-transition: all 0.0s;
+  -ms-transition: all 0.0s;
+  -o-transition: all 0.0s;
+  transition: all 0.0s;
+  background-color: #f8f8f8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#f8f8f8),to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f8f8f8,#f1f1f1);
+  background-image: linear-gradient(top,#f8f8f8,#f1f1f1);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+  }
+  .g-button:active {
+  background-color: #f6f6f6;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#f6f6f6),to(#f1f1f1));
+  background-image: -webkit-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: -moz-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: -ms-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: -o-linear-gradient(top,#f6f6f6,#f1f1f1);
+  background-image: linear-gradient(top,#f6f6f6,#f1f1f1);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  }
+  .g-button:visited {
+  color: #666;
+  }
+  .g-button-submit {
+  border: 1px solid #3079ed;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  background-color: #4d90fe;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#4787ed));
+  background-image: -webkit-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: -moz-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: -ms-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: -o-linear-gradient(top,#4d90fe,#4787ed);
+  background-image: linear-gradient(top,#4d90fe,#4787ed);
+  }
+  .g-button-submit:hover {
+  border: 1px solid #2f5bb7;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #357ae8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#357ae8));
+  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: linear-gradient(top,#4d90fe,#357ae8);
+  }
+  .g-button-submit:active {
+  background-color: #357ae8;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#4d90fe),to(#357ae8));
+  background-image: -webkit-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -moz-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -ms-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: -o-linear-gradient(top,#4d90fe,#357ae8);
+  background-image: linear-gradient(top,#4d90fe,#357ae8);
+  -webkit-box-shadow: inset 0 1px 2px rgb	a(0,0,0,0.3);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  }
+  
+  .g-button-red {
+  border: 1px solid transparent;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1);
+  text-transform: uppercase;
+  background-color: #d14836;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#dd4b39),to(#d14836));
+  background-image: -webkit-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -moz-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -ms-linear-gradient(top,#dd4b39,#d14836);
+  background-image: -o-linear-gradient(top,#dd4b39,#d14836);
+  background-image: linear-gradient(top,#dd4b39,#d14836);
+  }
+  .g-button-red:hover {
+  border: 1px solid #b0281a;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.3);
+  background-color: #c53727;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#dd4b39),to(#c53727));
+  background-image: -webkit-linear-gradient(top,#dd4b39,#c53727);
+  background-image: -moz-linear-gradient(top,#dd4b39,#c53727);
+  background-image: -ms-linear-gradient(top,#dd4b39,#c53727);
+  background-image: -o-linear-gradient(top,#dd4b39,#c53727);
+  background-image: linear-gradient(top,#dd4b39,#c53727);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -ms-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  -o-box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+  }
+  .g-button-red:active {
+  border: 1px solid #992a1b;
+  background-color: #b0281a;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#dd4b39),to(#b0281a));
+  background-image: -webkit-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: -moz-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: -ms-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: -o-linear-gradient(top,#dd4b39,#b0281a);
+  background-image: linear-gradient(top,#dd4b39,#b0281a);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.3);
+  color: #fff
+  }
+  
+  .g-button-red:visited,
+  .g-button-share:visited,
+  .g-button-submit:visited {
+  color: #fff;
+  }
+  .g-button-submit:focus,
+  .g-button-share:focus,
+  .g-button-red:focus {
+  -webkit-box-shadow: inset 0 0 0 1px #fff;
+  -moz-box-shadow: inset 0 0 0 1px #fff;
+  box-shadow: inset 0 0 0 1px #fff;
+  }
+  .g-button-share:focus {
+  border-color: #29691d;
+  }
+  .g-button-red:focus {
+  border-color: #d14836;
+  }
+  .g-button-submit:focus:hover,
+  .g-button-share:focus:hover,
+  .g-button-red:focus:hover {
+  -webkit-box-shadow: inset 0 0 0 1px #fff, 0 1px 1px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 0 0 1px #fff, 0 1px 1px rgba(0,0,0,0.1);
+  box-shadow: inset 0 0 0 1px #fff, 0 1px 1px rgba(0,0,0,0.1);
+  }
+  .g-button.selected {
+  background-color: #eee;
+  background-image: -webkit-gradient(linear,left top,left bottom,from(#eee),to(#e0e0e0));
+  background-image: -webkit-linear-gradient(top,#eee,#e0e0e0);
+  background-image: -moz-linear-gradient(top,#eee,#e0e0e0);
+  background-image: -ms-linear-gradient(top,#eee,#e0e0e0);
+  background-image: -o-linear-gradient(top,#eee,#e0e0e0);
+  background-image: linear-gradient(top,#eee,#e0e0e0);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+  color: #333;
+  }
+  .g-button img {
+  display: inline-block;
+  margin: -3px 0 0;
+  opacity: .55;
+  filter: alpha(opacity=55);
+  vertical-align: middle;
+  pointer-events: none;
+  }
+  *+html .g-button img {
+  margin: 4px 0 0;
+  }
+  .g-button:hover img {
+  opacity: .72;
+  filter: alpha(opacity=72);
+  }
+  .g-button:active img {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  }
+  .g-button.disabled img {
+  opacity: .5;
+  filter: alpha(opacity=50);
+  }
+  .g-button.disabled,
+  .g-button.disabled:hover,
+  .g-button.disabled:active,
+  .g-button-submit.disabled,
+  .g-button-submit.disabled:hover,
+  .g-button-submit.disabled:active,
+  .g-button-share.disabled,
+  .g-button-share.disabled:hover,
+  .g-button-share.disabled:active,
+  .g-button-red.disabled,
+  .g-button-red.disabled:hover,
+  .g-button-red.disabled:active,
+  input[type=submit][disabled].g-button {
+  background-color: none;
+  opacity: .5;
+  filter: alpha(opacity=50);
+  cursor: default;
+  pointer-events: none;
+  }
+  
+  .errormsg {
+  margin: .5em 0 0;
+  display: none;
+  color: #dd4b39;
+  line-height: 17px;
+  }
+  
+</style>
+<style type="text/css">
+  .signuponepage .sign-up {
+  width: 585px;
+  float: left;
+  margin-left: 390px;
+  }
+  .signuponepage .signup-box {
+  margin: 0;
+  padding: 25px;
+  background: aliceblue;
+  border: 1px solid #e5e5e5;
+  }
+  
+  .signuponepage input[type=text],
+  .signuponepage input[type=password] {
+  direction: ltr;
+  }
+  .signuponepage input[type=tel],
+  .signuponepage input[type=text],
+  .signuponepage input[type=password],
+  .signuponepage select {
+  width: 100%;
+  }
+  .signuponepage .form-element {
+  position: relative;
+  margin: 0 0 1.5em;
+  }
+  .signuponepage .form-element label {
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  }
+  .signuponepage .form-element strong {
+  margin: 0 0 .5em;
+  display: inline-block;
+  width: 100%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  }
+  .signuponepage .form-element.multi-field label strong {
+  display: none;
+  }
+  .signuponepage .form-element .placeholder-text {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  color: #999;
+  display: none;
+  }
+  .signuponepage .form-element.name label.firstname {
+  width: 150px;
+  margin-right: 5px;
+  }
+  .signuponepage .form-element.name label.lastname {
+  width: 150px;
+  }
+  .signuponepage .form-element.name label.firstname input,
+  .signuponepage .form-element.name label.lastname input {
+  direction: ltr;
+  }
+  .signuponepage .form-element.name .placeholder-text {
+  left: 10px;
+  }
+  .signuponepage .form-element.birthday label {
+  margin-right: 5px;
+  }
+  .signuponepage .form-element.birthday label.year {
+  width: 97px;
+  margin-right: 0;
+  }
+  .signuponepage .form-element.birthday label.month {
+  width: 135px;
+  }
+  .signuponepage .form-element.birthday label.day {
+  width: 60px;
+  }
+  
+  }
+</style>
+
+<style type="text/css">
+.inputbox{width:30px; height:18px; line-height:18px; color:#333; border:1px solid #cacaca; background:#fff; padding:3px; margin-right:5px; display:inline;}
+.addressbox{width:200px; height:18px; line-height:18px; color:#333; border:1px solid #cacaca; background:#fff; padding:3px; margin-left:2px; margin-right:5px; display:inline;}
+.divpart{position:absolute;left:.2in;top:0in;height:20in;width:5.5in;;scroll:auto;}
+.selectmonth{
+  display: inline-block;
+  height: 29px;
+  margin: 0;
+  padding: 0 0px;
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-top: 1px solid #c0c0c0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  border-radius: 1px;}
+
+.mytable { 
+    padding: 0; 
+    margin: 0; 
+  } 
+th { 
+    color: #4f6b72; 
+    border-right: 1px solid #C1DAD7; 
+    border-bottom: 1px solid #C1DAD7; 
+    border-top: 1px solid #C1DAD7; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    text-align: left; 
+    padding: 6px 6px 6px 12px; 
+    background: #CAE8EA; } 
+th.nobg { 
+    border-top: 1px solid #C1DAD7; 
+    border-left: 1px solid #C1DAD7; 
+    border-right: 1px solid #C1DAD7; 
+    background: none; } 
+td { 
+    border-top: 1px solid #C1DAD7; 
+    border-left: 1px solid #C1DAD7; 
+    border-right: 1px solid #C1DAD7; 
+    border-bottom: 1px solid #C1DAD7; 
+    background: #fff; 
+    padding: 6px 6px 6px 12px; 
+    color: #4f6b72; } 
+td.alt { 
+    background: #F5FAFA; 
+    color: #797268; } 
+th.spec { 
+    border-left: 1px solid #C1DAD7; 
+    border-top: 0; 
+    background: #fff; 
+} 
+th.specalt { 
+    border-left: 1px solid #C1DAD7; 
+    border-top: 0; 
+    background: #f5fafa; 
+    color: #797268; } 
+html>body td {} 
+</style>
+<script type="text/javascript">
+var validate1 = false;
+var validate2 = true;
+
+function button1() {
+
+var form1 = document.getElementById("div1");
+var form2 = document.getElementById("div2");
+validate1 = varifyform1();
+	if ( validate1 ) {
+        storeform1();
+		form1.style.display = "none";
+		form2.style.display = "block";
+		validate1 = false;
+	}
+}
+
+function varifyform1(){
+	var passveri=true;
+	if(isEmpty(document.getElementById("firstname").value) || isEmpty(document.getElementById("lastname").value)){
+		passveri = false;
+		document.getElementById("errMsg1").style.display = "inline";
+	}
+	else{
+		document.getElementById("errMsg1").style.display = "none";
+	}
+	
+	if(isEmpty(document.getElementById("studentid").value)){
+		passveri = false;
+		document.getElementById("errMsg2").style.display = "inline";
+	}
+	else if(isNaN(document.getElementById("studentid").value)||(document.getElementById("studentid").value.length!=10)){
+		passveri = false;
+		document.getElementById("errMsg3").style.display = "inline";
+	}
+	else{
+		document.getElementById("errMsg2").style.display = "none";
+		document.getElementById("errMsg3").style.display = "none";
+	}
+	var date = document.getElementById("year").value+"/"+document.getElementById("BirthMonth").value+"/"+document.getElementById("day").value;
+	if(notValidDate(date)){
+		passveri = false;
+		document.getElementById("errMsg4").style.display = "inline";
+	}
+	else{
+		document.getElementById("errMsg4").style.display = "none";
+	}
+	var gender = document.getElementsByName("sex");
+	var genderValue="";
+	for(var i=0;i<gender.length;i++){
+	  if(gender[i].checked){
+	     genderValue=gender[i].value;
+	  }
+	}
+	if(isEmpty(genderValue)){
+		passveri = false;
+		document.getElementById("errMsg5").style.display = "inline";
+	}
+	else{
+		document.getElementById("errMsg5").style.display = "none";
+	}
+	
+	return passveri;
+}
+
+function isEmpty(s){
+	if(s.length == 0){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+
+function notValidDate(inString)
+{
+var tempDate;
+var a=new Date(inString);
+var y=a.getFullYear();
+var m=a.getMonth()+1;
+var d=a.getDate();
+var myday=y + "/" + m + "/" + d
+if (myday!=inString){
+  return true;
+}
+return false;
+}
+
+function button2(){
+var form2 = document.getElementById("div2");
+var report1 = document.getElementById("report1");
+       if(validate2){
+       storeform2();
+       generateReport();
+       form2.style.display = "none";
+       report1.style.display = "block";
+       validate1 = true;
+       }
+}
+
+function generateReport(){
+var str="<div style='margin-top:100;margin-left:20'>";
+str+="<table border='1' class='mytable'>"
+var num = 9;
+str+="<tr>";
+str+="<td valign='top'>"+"First name"+"</td>";
+str+="<td valign='top'>"+"Last name"+"</td>";
+str+="<td valign='top'>"+"StudentID name"+"</td>";
+str+="<td valign='top'>"+"Month"+"</td>";
+str+="<td valign='top'>"+"Day"+"</td>";
+str+="<td valign='top'>"+"Year"+"</td>";
+str+="<td valign='top'>"+"School"+"</td>";
+str+="<td valign='top'>"+"Major"+"</td>";
+str+="<td valign='top'>"+"Gender"+"</td>";
+str+="<td valign='top'>"+"Detail"+"</td>";
+str+="</tr>";
+for(var i=0; i<data.length; i++){
+  str += "<tr>";
+  for(j=0;j<num;j++){
+    str += "<td valign='top'>"+data[i][j]+"</td>";
+  }
+  str +="<td balign='top'><input type='button' value='detail'  class='g-button g-button-submit' onClick='detail("+i+")'></td>";
+  str +="</tr>";
+}
+str+="</table>";
+str +="<input type='button' value='Start a new registration' class='g-button g-button-red' onClick='returnHome1()'>";
+str+="</div>"
+document.getElementById("report1").innerHTML = str;
+}
+
+function detail(i){
+var report1 = document.getElementById("report1");
+var report2 = document.getElementById("report2");
+
+var str="<div style='margin-top:100;margin-left:20'>";
+str+="<table border='1' class='mytable'>"
+str+="<tr>";
+str+="<td valign='top'>"+"First name"+"</td>";
+str+="<td valign='top'>"+"Last name"+"</td>";
+str+="<td valign='top'>"+"StudentID name"+"</td>";
+str+="<td valign='top'>"+"Month"+"</td>";
+str+="<td valign='top'>"+"Day"+"</td>";
+str+="<td valign='top'>"+"Year"+"</td>";
+str+="<td valign='top'>"+"School"+"</td>";
+str+="<td valign='top'>"+"Major"+"</td>";
+str+="<td valign='top'>"+"Gender"+"</td>";
+str+="<td valign='top'>"+"Courses Already Taken"+"</td>";
+str+="<td valign='top'>"+"Race"+"</td>";
+str+="<td valign='top'>"+"Skin Color"+"</td>";
+str+="<td valign='top'>"+"Hair Color"+"</td>";
+str+="<td valign='top'>"+"Hobby"+"</td>";
+str+="<td valign='top'>"+"Dine on campus"+"</td>";
+str+="<td valign='top'>"+"Favourite Music Generes"+"</td>";
+str+="<td valign='top'>"+"Status"+"</td>";
+str+="<td valign='top'>"+"Awards"+"</td>";
+str+="<td valign='top'>"+"Street"+"</td>";
+str+="<td valign='top'>"+"City"+"</td>";
+str+="<td valign='top'>"+"State"+"</td>";
+str+="<td valign='top'>"+"Postal Code"+"</td>";
+str+="<td valign='top'>"+"Phone"+"</td>";
+str+="<td valign='top'>"+"Mobile"+"</td>";
+str+="<td valign='top'>"+"Email Address"+"</td>";
+str+="</tr>";
+str+="<tr>";
+for(var j=0; j<data[i].length; j++){
+    str += "<td>"+data[i][j]+"</td>";
+}
+str+="</tr>";
+str+="</table>";
+str +="<input type='button' value='Start a new registration' class='g-button g-button-red' onClick='returnHome2()'>";
+str +="<input type='button' value='return to summary' class='g-button g-button-submit' onClick='returnSummary()'>";
+str+="</div>";
+document.getElementById("report2").innerHTML = str;
+
+report1.style.display = "none";
+report2.style.display = "block";
+}
+
+function returnHome1(){
+	var form1 = document.getElementById("div1");
+	var report1 = document.getElementById("report1");
+	       report1.style.display = "none";
+	       form1.style.display = "block";
+	       validate1 = true;
+	}
+function returnHome2(){
+var form1 = document.getElementById("div1");
+var report2 = document.getElementById("report2");
+       report2.style.display = "none";
+       form1.style.display = "block";
+       validate1 = true;
+}
+function returnSummary(){
+	var report1 = document.getElementById("report1");
+	var report2 = document.getElementById("report2");
+	       report2.style.display = "none";
+	       report1.style.display = "block";
+	       validate1 = true;
+}
+
+
+
+var data = new Array();
+var rows=new Array();
+
+function storeform1(){
+rows=new Array();
+var fname = document.getElementById("firstname");
+var lname = document.getElementById("lastname");
+var uid = document.getElementById("studentid");
+var month = document.getElementById("BirthMonth");
+var day = document.getElementById("day");
+var year = document.getElementById("year");
+var school = document.getElementById("school");
+var major = document.getElementById("major");
+var gender = document.getElementsByName("sex");
+var course = document.getElementById("course");
+var race = document.getElementsByName("race");
+var skin = document.getElementsByName("skin");
+var hair = document.getElementsByName("hair");
+var hobby = document.getElementsByName("hobby");
+var dine = document.getElementsByName("dine");
+var music = document.getElementsByName("music");
+var status = document.getElementsByName("status");
+var awards = document.getElementById("awards");
+
+rows.push(fname.value);
+fname.value="";
+rows.push(lname.value);
+lname.value="";
+rows.push(uid.value);
+uid.value="";
+
+var monthValue="";
+for(var i=0;i<month.length;i++){
+  if(month.options[i].selected){
+     monthValue=month.options[i].value;
+     month.options[i].selected=false;
+  }
+}
+rows.push(monthValue);
+
+rows.push(day.value);
+day.value="";
+rows.push(year.value);
+year.value="";
+
+var schoolValue="";
+for(var i=0;i<school.length;i++){
+  if(school.options[i].selected){
+     schoolValue=school.options[i].value;
+     school.options[i].selected=false;
+  }
+}
+rows.push(schoolValue);
+
+var majorValue=""
+for(var i=0;i<major.length;i++){
+  if(major.options[i].selected){
+     majorValue=major.options[i].value;
+     major.options[i].selected=false;
+  }
+}
+rows.push(majorValue);
+major.options.length=0;
+
+var genderValue="";
+for(var i=0;i<gender.length;i++){
+  if(gender[i].checked){
+     genderValue=gender[i].value;
+     gender[i].checked=false;
+  }
+}
+rows.push(genderValue);
+
+var courseValue="";
+for(var i=0;i<course.length;i++){
+  if(course.options[i].selected){
+     courseValue+=course.options[i].value+"/";
+     course.options[i].selected=false;
+  }
+}
+rows.push(courseValue);
+
+var raceValue="";
+for(var i=0;i<race.length;i++){
+  if(race[i].checked){
+     raceValue=race[i].value;
+     race[i].checked=false;
+  }
+}
+rows.push(raceValue);
+
+var skinValue="";
+for(var i=0;i<skin.length;i++){
+  if(skin[i].checked){
+     skinValue=skin[i].value;
+     skin[i].checked=false;
+  }
+}
+rows.push(skinValue);
+
+var hairValue="";
+for(var i=0;i<hair.length;i++){
+  if(hair[i].checked){
+     hairValue=hair[i].value;
+     hair[i].checked=false;
+  }
+}
+rows.push(hairValue);
+
+var string="";
+for(var i=0;i<hobby.length;i++){
+  if(hobby[i].checked){
+      string += hobby[i].value;
+      string += "/";
+     hobby[i].checked=false;
+  }
+}
+rows.push(string);
+
+var dineValue="";
+for(var i=0;i<dine.length;i++){
+  if(dine[i].checked){
+      dineValue += dine[i].value;
+      dineValue += "/";
+     dine[i].checked=false;
+  }
+}
+rows.push(dineValue);
+
+var musicValue="";
+for(var i=0;i<music.length;i++){
+  if(music[i].checked){
+      music += music[i].value+"/";
+     music[i].checked=false;
+  }
+}
+rows.push(musicValue);
+
+var statusValue="";
+for(var i=0;i<status.length;i++){
+  if(status[i].checked){
+      statusValue += hobby[i].value+"/";
+     status[i].checked=false;
+  }
+}
+rows.push(statusValue);
+rows.push(awards.value);
+awards.value="";
+
+}
+
+function storeform2(){
+
+	var street = document.getElementById("street");
+	var city = document.getElementById("city");
+	var state = document.getElementById("state");
+	var postal = document.getElementById("postal");
+	var phone = document.getElementById("phone");
+	var mobile = document.getElementById("mobile");
+	var email = document.getElementById("email");
+
+	rows.push(street.value);
+	street.value="";
+	rows.push(city.value);
+	city.value="";
+	rows.push(state.value);
+	state.value="";
+	rows.push(postal.value);
+	postal.value="";
+	rows.push(phone.value);
+	phone.value="";
+	rows.push(mobile.value);
+	mobile.value="";
+	rows.push(email.value);
+	email.value="";
+	data.push(rows);
+}
+
+var major=new Array();
+major[0]="";
+major[1]=new Array( "Computer Science|Computer Science", "Electrical|Electrical", "Environmental|Environmental", "Industrial and Systems|Industrial and Systems", "Mechanical|Mechanical" );
+major[2]=new Array( "Animation and Digital Arts|Animation and Digital Arts", "Cinematic Arts and Critical Studies|Cinematic Arts and Critical Studies", "Interactive Entertainment|Interactive Entertainment", "Writing for Screen and Television|Writing for Screen and Television" );
+major[3]=new Array( "Composition|composition", "Jazz Studies|js", "Music Industry|mi", "Popular Music|pop", "Studio/Jazz Guitar|sjg" );
+major[4]=new Array( "Astronomy|Astronomy", "Biological Sciences|Biological Sciences", "Chemistry|Chemistry", "Linguistics|Linguistics", "Philosophy|Philosophy" );
+major[5]=new Array( "Theatre (Acting)|Theatre (Acting)", "Theatre (Design)|Theatre (Design)", "Theatre (Sound Design)|Theatre (Sound Design)", "Theatre (Stage Management)|Theatre (Stage Management)", "Theatre (Technical Direction)|Theatre (Technical Direction)" );
+
+function updatemajors (selectedschool) {
+var schoolslist=document.student.school;
+var majorlist=document.student.major;
+
+majorlist.options.length=0;
+
+if ( selectedschool > 0 ) {
+	for ( i=0; i<major[selectedschool].length; i++) {
+		majorlist.options[majorlist.options.length]=
+			new Option(major[selectedschool][i].split("|")[0],
+					major[selectedschool][i].split("|")[1]);
+	}
+}
+}
+</script>
+</head>
+<body>
+
+<div class = "wrapper">
+<div id="div1" class="signuponepage main content clearfix">
+<div class="clearfix">
+<div class="sign-up" style =" -moz-border-radius: 10px; -webkit-border-radius: 10px;padding: 1px 1px;background:#404040 ;
+margin-top: 20px">
+<div>
+<h1 style="text-align:left; color:white; margin-left: 10px; margin-top: 5px">Please fill out the following form</h1>
+</div>
+<div class = "signup-box">
+<form name="student" class="createaccount-form">
+<div class="form-element multi-field name" id="form_name_element">
+<fieldset>
+  <legend><strong>Name</strong></legend>
+  <label id="firstname-label" class="firstname">
+  <input type="text" class="inputbox"  name="firstname" id="firstname" placeholder = "First Name">
+  </label>
+  <label id="lastname-label" class="lastname">
+  <input type="text" class="inputbox"  name="lastname" id="lastname" placeholder = "Last Name">
+  <span class="placeholder-text" id="lastname-placeholder">Last</span>
+  </label>
+  </fieldset>
+  <div class="infomsg" id="name-infomessage">
+  </div>
+<span id="errMsg1" role="alert" class="errormsg" style="display:none">You cannot leave this empty</span>
+</div>
+<div class="form-element" >
+  <label style="width:310px">
+  <strong>Student ID(10digits)</strong>
+  <input type="text" class="inputbox" autocomplete="off" name="studentid" id="studentid"  maxlength="10">
+</label>
+<div>
+<span id="errMsg2" class="errormsg">You cannot leave this field empty</span>
+<span id="errMsg3" class="errormsg">This is not a 10 digit number</span>
+</div>
+</div>
+<div class = "form-element multi-field birthday">
+<fieldset>  
+<legend><strong>Birthday</strong></legend>
+<label class = "month">
+<span>
+  <select class="selectmonth" name="BirthMonth" id="BirthMonth">
+  <option value="">Month</option>
+  <option value="1">January</option>
+  <option value="2">February</option>
+  <option value="3">March</option>
+  <option value="4">April</option>
+  <option value="5">May</option>
+  <option value="6">June</option>
+  <option value="7">July</option>
+  <option value="8">August</option>
+  <option value="9">September</option>
+  <option value="10">October</option>
+  <option value="11">November</option>
+  <option value="12">December</option>
+  </select>
+</span>
+</label>
+<label class="day">
+  <input type="text" name="day" id="day" class="inputbox"  maxlength="2" placeholder = "Day">
+</label>
+<lable class = "year" >
+  <input type="text" name="year" id="year" class="inputbox"   maxlength="4" style = "width:95"placeholder = "Year">
+</lable>
+</fieldset>
+  <span id="errMsg4" class="errormsg">It's not a valid date</span><br>
+</div>
+
+<div class = "form-element multi-field">
+<fieldset>  
+<legend><strong>Major</strong></legend>
+<label style = "width:260">
+  <select name="school" id="school" onchange="updatemajors(this.selectedIndex)">
+  <option value="">Choose your school first</option>
+  <option value="Viterbi School of Engineering">Viterbi School of Engineering</option>
+  <option value="School of Cinematic Arts">School of Cinematic Arts</option>
+  <option value="School of Music">School of Music</option>
+  <option value="College of Letters, Arts and Sciences">College of Letters, Arts and Sciences</option>
+  <option value="School of Dramatic Arts">School of Dramatic Arts</option>
+  </select>
+</label>
+<label style = "width:260">
+  <select name="major" id="major" size="1">
+  </select>
+</label>
+</fieldset>
+</div>
+ 
+
+<div class = "form-element">
+<legend><strong>Gender</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="sex" id="male" value="male">
+  </span>Male
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="sex" id="female" value="female">
+  </span>Female
+</lable>
+  <lable>
+  <span>
+  <input type="radio" name="sex" id="other" value="other">
+  </span>Other
+  </lable>
+ </fieldset>
+  <span id="errMsg5" class="errormsg">You cannot leave this field empty</span>
+</div>  
+
+<div class="form-element" >
+  <label style = "width: 310">
+  <strong>Courses already taken(multiple choice)</strong>
+  <select name="cousre" id="course" multiple="multiple">
+  <option value="">Choose</option>
+  <option value="Math">Math</option>
+  <option value="Literature">Literature</option>
+  <option value="Writing">Writing</option>
+  <option value="Physics">Physics</option>
+  <option value="Chemistry">Chemistry</option>
+  </select>
+</label>
+</div>
+
+<div class = "form-element">
+<legend><strong>Race(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="race" id="Caucasion" value="Caucasion">
+  </span>Caucasion
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="race" id="Mongoloid" value="Mongoloid">
+  </span>Mongoloid
+</lable>
+  <lable>
+  <span>
+  <input type="radio" name="race" id="Negroid" value="Negroid">
+  </span>Negroid
+  </lable>
+ </fieldset>
+</div> 
+
+<div class = "form-element">
+<legend><strong>Skin color(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="skin" id="SBlack" value="Black">
+  </span>Black
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="skin" id="White" value="White">
+  </span>White
+</lable>
+  <lable>
+  <span>
+  <input type="radio" name="skin" id="SBlonde" value="Blonde">
+  </span>Blonde
+  </lable>
+ </fieldset>
+</div> 
+
+<div class = "form-element">
+<legend><strong>Hair color(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="hair" id="HBlack" value="Black">
+  </span>Black
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="radio" name="hair" id="Brown" value="Brown">
+  </span>Brown
+</lable>
+  <lable>
+  <span>
+  <input type="radio" name="hair" id="HBlonde" value="Blonde">
+  </span>Blonde
+  </lable>
+ </fieldset>
+</div> 
+  
+<div class = "form-element">
+<legend><strong>Hobby(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="hobby" value="sports">
+  </span>Sports
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="hobby" value="reading">
+  </span>Reading
+</lable>
+  <lable>
+  <span>
+  <input type="checkbox" name="hobby" value="arts">
+  </span>Performing arts
+  </lable>
+ </fieldset>
+</div> 
+
+<div class = "form-element">
+<legend><strong>Dine on campus(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="dine" value="breakfast">
+  </span>breakfast
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="dine" value="lunch">
+  </span>lunch
+</lable>
+  <lable>
+  <span>
+  <input type="checkbox" name="dine" value="supper">
+  </span>supper
+  </lable>
+ </fieldset>
+</div> 
+
+<div class = "form-element">
+<legend><strong>Favourite Music Geners(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="music" value="jazz">
+  </span>Jazz
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="music" value="Pop music">
+  </span>Pop music
+</lable>
+  <lable>
+  <span>
+  <input type="checkbox" name="music" value="classic">
+  </span>classic
+  </lable>
+ </fieldset>
+</div>
+
+<div class = "form-element">
+<legend><strong>Status(optional)</strong></legend>
+<fieldset>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="status" value="part-time">
+  </span>part-time
+</lable>
+<lable style="margin-right:30px;">
+  <span>
+  <input type="checkbox" name="status" value="full-time">
+  </span>full-time
+</lable>
+  <lable>
+  <span>
+  <input type="checkbox" name="status" value="off-campus">
+  </span>off-campus
+  </lable>
+ </fieldset>
+</div>
+
+<div class="form-element" >
+ <label >
+  <strong>Awards(optional)</strong>
+  <textarea name="awards" id="awards" rows="8" cols="45">
+  </textarea>
+ </label>
+</div>
+
+ <div class="form-element nextstep-button">
+<input type="button" class="g-button g-button-red" style="cursor: pointer;" value="Next" onClick="button1()"/>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+
+<div id="div2" class="signuponepage main content clearfix" style="display:none">
+<div class="clearfix">
+<div class="sign-up" style =" -moz-border-radius: 10px; -webkit-border-radius: 10px;padding: 1px 1px;background:#404040 ;
+margin-top: 20px">
+<div>
+<h1 style="text-align:left; color:white; margin-left: 10px; margin-top: 5px">Contact details</h1>
+</div>
+<div class = "signup-box">
+<form name="contact" class="createaccount-form">
+<div class="form-element" >
+  <label>
+  <strong>Native location address:</strong>
+</label>
+</div>
+<div class="form-element" >
+  <label>
+  <strong>Street</strong>
+  <input type="text" name="street" id="street" class="addressbox" maxlength="30">
+</label>
+</div>
+<div class="form-element" >
+  <label>
+  <strong>City</strong>
+  <input type="text" name="city" id="city" class="addressbox" maxlength="30">
+</label>
+</div>
+<div class="form-element" >
+  <label>
+  <strong>State</strong>
+  <input type="text" name="state" id="state" class="addressbox" maxlength="30">
+</label>
+</div>
+<div class="form-element" >
+  <label>
+  <span>
+  <strong style="display:inline">Postal Code</strong>
+  <input type="text" name="postal" id="postal" class="addressbox" style="width:100px" maxlength="5">
+  </span>
+</label>
+</div>
+<div class="form-element multi-field" >
+<fieldset> 
+  <label style="display:inline">
+  <strong style="display:inline">Phone</strong>
+  <input type="text" name="phone" id="phone" class="addressbox" style="width:185px ; margin-right:55" maxlength="10">
+  </label>
+  <lable>
+  <strong style="display:inline">Mobile</strong>
+  <input type="text" name="mobile" id="mobile" class="addressbox" style="width:185px" maxlength="10">
+</label>
+</fieldset>
+</div>
+
+<div class="form-element" >
+  <label>
+  <span>
+  <strong>Email Address</strong>
+  <input type="text" name="email" id="email" class="addressbox" maxlength="30">
+  </span>
+</label>
+</div>
+<input type="button" class="g-button g-button-red" value="Complete" onClick="button2()"/>
+
+</form>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="report1" class="divpart" style="display:none"></div>
+<div id="report2" class="divpart" style="display:none"></div>
+</div>
+</body>
+</html>
